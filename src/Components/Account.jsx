@@ -77,13 +77,13 @@ function Account() {
               <div className='absolute top-10 right-2 bg-white text-black rounded-lg shadow-md'>
                 <button 
                   className='block px-4 py-2' 
-                  onClick={() => handleEdit(post.id)}
+                  onClick={() => handleEdit(post.postID)}
                 >
                   Edit
                 </button>
                 <button 
                   className='block px-4 py-2' 
-                  onClick={() => handleDelete(post.id)}
+                  onClick={() => handleDelete(post.postID)}
                 >
                   Delete
                 </button>
