@@ -35,7 +35,7 @@ function LandingPage() {
       </div>
 
       {/* main content area */}
-      <div className="md:w-[60%] w-full h-full relative flex flex-col gap-2 bg-opacity-10 p-2 overflow-y-scroll">
+      <div className="md:w-[60%] w-full h-full relative flex flex-col gap-2 bg-opacity-10 p-2 overflow-y-scroll hide-scrollbar">
         <CreatePost />
         {
           currentSection==="home"&&

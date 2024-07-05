@@ -89,7 +89,7 @@ function Account() {
                 </button>
               </div>
             )}
-            <img src={post.imageUrl} className='w-full h-64 object-cover' />
+            <img src={post.imageUrl} className='w-full h-64 object-cover rounded-xl' />
             <h1 className='p-2 rounded-full text-[8px] text-white backdrop-blur-sm absolute bottom-0 w-full'>{post.title}</h1>
           </div>
         ))}
