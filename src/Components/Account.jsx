@@ -32,7 +32,7 @@ function Account() {
       <div className='w-full h-full flex flex-wrap gap-2'>
         {posts.map((post, index) => (
           <div key={index} className='w-[32%] h-auto relative  bg-slate-50 bg-opacity-10'>
-            <img src={post.imageUrl} className='w-full h-80 object-cover' />
+            <img src={post.imageUrl} className='w-full h-64 object-cover' />
             <h1 className='p-2 rounded-full text-[8px] text-white backdrop-blur-sm absolute bottom-0 w-full'>{post.title}</h1>
           </div>
         ))}
