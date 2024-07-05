@@ -74,7 +74,7 @@ function Account() {
               <BsThreeDotsVertical />
             </button>
             {openDropdownIndex === index && (
-              <div className='absolute top-10 right-2 bg-white text-black rounded-lg shadow-md'>
+              <div className='absolute top-10 right-2 bg-stone-950 text-white rounded-lg shadow-md'>
                 <button 
                   className='block px-4 py-2' 
                   onClick={() => handleEdit(post.postID)}
