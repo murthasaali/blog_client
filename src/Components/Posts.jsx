@@ -97,6 +97,7 @@ function Posts() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
   const [loading,setLoading]=useState(false)
+  const [likeId,setLikeId]=useState()
 
 
 
@@ -137,8 +138,9 @@ function Posts() {
     setIsModalOpen(false);
   };
 
-  const like=()=>{
+  const like=(id)=>{
     setLoading(true)
+    setLikeId(id)
     customToast("you liked this post")
     setTimeout(() => {
       setLoading(false)
@@ -167,7 +169,7 @@ function Posts() {
               <p className="text-xl font-thin w-[80%]">{post.content}</p>
               {post.imageUrl && (
                 <div className="w-[50%] h-80  cursor-pointer relative" onClick={() => openModal(post)}>
-                       { loading && (
+                       { likeId===post.postID&&loading && (
                       <div
                         className="absolute bottom-0 left-[-10px] w-[150px]   h-[150px]  flex justify-center items-center"
                         style={{ zIndex: 999 }}
@@ -191,7 +193,7 @@ from {post.email}
                 <button>
                   <IoChatboxOutline />
                 </button>
-                <button  className='hover:text-red-600'  onClick={like}>
+                <button  className='hover:text-red-600'  onClick={()=>like(post.postID)}>
                   <FaRegHeart />
                 </button>
                 <button>
