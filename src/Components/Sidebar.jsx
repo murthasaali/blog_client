@@ -16,10 +16,10 @@ import { SiMeta } from "react-icons/si";
 
 function Sidebar() {
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem("user")); // Parse the user object from localStorage
+  const user = JSON.parse(localStorage.getItem("user")); 
 
   const handleButtonClick = (section) => {
-    dispatch(setSection(section)); // Dispatch action to update current section
+    dispatch(setSection(section)); 
   };
 
   return (

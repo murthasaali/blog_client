@@ -1,5 +1,7 @@
 // timeAgo.js
 
+
+// converting createdAt to readable formate
 function timeAgo(createdAt) {
     const now = new Date();
     const createdDate = new Date(createdAt);

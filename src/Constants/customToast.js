@@ -8,6 +8,7 @@ const customToast = (message, icon) => {
     }, 2000);
 
     return (
+      //  custom toast for pop up message
       <div
         className={`${
           t.visible ? 'opacity-100  transition-all scale-105 duration-500' : 'opacity-0 scale-75  transition-all duration-500'

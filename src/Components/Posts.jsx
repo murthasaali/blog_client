@@ -102,6 +102,8 @@ function Posts() {
 
 
   useEffect(() => {
+
+    // fetching post
     const fetchPosts = async () => {
       try {
         const response = await apiRequest.get('/api/posts');
@@ -138,6 +140,7 @@ function Posts() {
     setIsModalOpen(false);
   };
 
+  //  function to like a post
   const like=(id)=>{
     setLoading(true)
     setLikeId(id)
@@ -150,6 +153,7 @@ function Posts() {
 
   return (
     <div className="w-full rounded-lg gap-3 flex flex-col">
+      {/* list out the post */}
       {Array.isArray(posts) && posts.length > 0 ? (
         posts.map((post, index) => (
           <div key={index} className="h-fit w-full bg-stone-100 bg-opacity-10 rounded-lg flex text-stone-300 p-5">
@@ -174,6 +178,8 @@ function Posts() {
                         className="absolute bottom-0 left-[-10px] w-[150px]   h-[150px]  flex justify-center items-center"
                         style={{ zIndex: 999 }}
                       >
+
+                        {/* like lotti */}
                         <Player
                           src="https://lottie.host/0bb4d081-4124-4a8c-987b-4a46982e91cc/Naj4kVQ2pk.json"
                           autoplay
@@ -210,7 +216,7 @@ from {post.email}
         <p>No posts available</p>
       )}
 
-      {/* Modal */}
+      {/* Modal  for view a specific post */}
       {isModalOpen && selectedPost && (
         <ImageModal post={selectedPost} closeModal={closeModal} />
       )}

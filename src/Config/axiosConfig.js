@@ -1,3 +1,5 @@
+
+//  instance for fetching through axios
 import axios from "axios";
 const apiRequest = axios.create({
   baseURL: "https://blog-backend-dgvd.onrender.com",

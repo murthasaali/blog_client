@@ -1,3 +1,5 @@
+
+// token storing in localstorage
 export const saveToken = (token) => {
     localStorage.setItem('token', token);
   };

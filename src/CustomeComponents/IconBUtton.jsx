@@ -4,7 +4,9 @@ function IconButton({ title, icon ,onClick}) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <button
+
+    // iconbuttton reusable component
+     <button
     
       className='w-fit px-4 py-2  bg-slate-50 bg-opacity-5 text-stone-400 hover:text-stone-100 rounded-full flex gap-2 justify-center items-center relative'
       onMouseEnter={() => setIsHovered(true)}

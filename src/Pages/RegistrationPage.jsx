@@ -13,9 +13,8 @@ function RegistrationPage() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    setError(''); // Clear previous errors
+    setError('');
     try {
-      // console.log()
       const response = await apiRequest.post('/auth/register', {
         username,
         email,
@@ -24,15 +23,15 @@ function RegistrationPage() {
 
       console.log('Registration successful:', response.data);
       customToast("registration succussfull")
-      nav("/login")
       // Optionally, redirect to login page or show success message
+      nav("/login")
 
     } catch (error) {
       console.error('Registration error:', error);
       if (error.response) {
         console.error('Registration failed with status code:', error.response.status);
         console.error('Error response:', error.response.data);
-        setError(error.response.data.message || 'Registration failed'); // Assuming backend sends an error message
+        setError(error.response.data.message || 'Registration failed'); 
       } else if (error.request) {
         console.error('No response received:', error.request);
         setError('No response from server');

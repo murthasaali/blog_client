@@ -1,3 +1,5 @@
+
+//  hardecode of topbuyers list
 export const topBuyers = [
     {
       "id": 1,
