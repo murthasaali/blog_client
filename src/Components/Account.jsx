@@ -80,10 +80,10 @@ function Account() {
       <div className='w-full flex justify-between'>
         <h1 className='text-cyan-400 font-bold'>Account</h1>
         <div className='flex justify-center items-center gap-5'>
-          <button className='bg-red-400 text-black rounded-full' onClick={handleLogout}>
+          <button className='bg-red-400 text-black rounded-full px-3 py-2' onClick={handleLogout}>
             Logout
           </button>
-          <button className='bg-stone-400 text-white rounded-full'>Switch Account</button>
+          <button className='bg-stone-100 bg-opacity-10 text-white rounded-full px-3 py-2'>Switch Account</button>
         </div>
       </div>
       <div className='w-full h-full flex flex-wrap gap-2'>
