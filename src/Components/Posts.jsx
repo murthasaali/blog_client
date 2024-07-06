@@ -139,6 +139,7 @@ function Posts() {
 
   const like=()=>{
     setLoading(true)
+    customToast("you liked this post")
 
   }
 
@@ -187,7 +188,7 @@ from {post.email}
                 <button>
                   <IoChatboxOutline />
                 </button>
-                <button  className='hover:text-red-600'  onClick={()=>customToast("you liked this post")}>
+                <button  className='hover:text-red-600'  onClick={()=>like}>
                   <FaRegHeart />
                 </button>
                 <button>
