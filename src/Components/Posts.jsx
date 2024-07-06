@@ -8,6 +8,7 @@ import { FaXmark } from 'react-icons/fa6';
 import apiRequest from '../Config/axiosConfig';
 import customToast from '../Constants/customToast';
 import timeAgo from '../Constants/timeAgo';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 // Modal Component
 function ImageModal({ post, closeModal }) {
@@ -95,6 +96,9 @@ function Posts() {
   const [posts, setPosts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
+  const [loading,setLoading]=useState(false)
+
+
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -133,6 +137,11 @@ function Posts() {
     setIsModalOpen(false);
   };
 
+  const like=()=>{
+    setLoading(true)
+
+  }
+
   return (
     <div className="w-full rounded-lg gap-3 flex flex-col">
       {Array.isArray(posts) && posts.length > 0 ? (
@@ -153,7 +162,21 @@ function Posts() {
               <h1 className='text-cyan-400 font-bold text-opacity-60'>{post.title}</h1>
               <p className="text-xl font-thin w-[80%]">{post.content}</p>
               {post.imageUrl && (
-                <div className="w-[50%] h-80  cursor-pointer" onClick={() => openModal(post)}>
+                <div className="w-[50%] h-80  cursor-pointer relative" onClick={() => openModal(post)}>
+                       { loading && (
+                      <div
+                        className="absolute bottom-0 left-[-10px] w-[150px]   h-[150px]  flex justify-center items-center"
+                        style={{ zIndex: 999 }}
+                      >
+                        <Player
+                          src="https://lottie.host/0bb4d081-4124-4a8c-987b-4a46982e91cc/Naj4kVQ2pk.json"
+                          autoplay
+                          loop
+                          style={{ height: "150px", width: "150px" }}
+                        ></Player>
+                      </div>
+                    )}
+
                   <img src={post.imageUrl} className='h-full w-auto object-cover rounded-lg' alt="" />
                 </div>
               )}
