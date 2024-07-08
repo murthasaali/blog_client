@@ -145,27 +145,19 @@ function Posts() {
   //  function to like a post
   const like = async (postID) => {
     const token = localStorage.getItem("token"); // Retrieve the token as a string
-    console.log(token)
+  
     setLikeId(postID);
     setLoading(true);
-
+  
     try {
-      const response = await apiRequest.post(`/api/posts/${postID}/likes`,{
+      const response = await apiRequest.post(`/api/posts/${postID}/likes`, {}, {
         headers: {
-          authorization: `${token}`, // Use the token directly as a string
+          authorization:`${token}`, // Ensure the token is sent in the Authorization header
         },
       });
-      
+  
       if (response.data.status) {
-     
-        // if (response.data.message==="you already liked this post"){
-
-        //   customToast("you already liked this post");
-        // }else{
-
-          customToast(response.data.message);
-        // }
-        // console.log(response.data.likeCount); 
+        customToast(response.data.message);
       } else {
         customToast("Failed to like the post");
       }
@@ -173,11 +165,10 @@ function Posts() {
       console.error('Error liking post:', error);
       customToast("Error liking the post");
     } finally {
-      setTimeout(() => {
-        setLoading(false);
-      }, 3000);
+      setLoading(false);
     }
   };
+  
 
   return (
     <div className="w-full rounded-lg gap-3 flex flex-col">
