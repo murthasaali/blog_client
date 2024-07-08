@@ -155,14 +155,14 @@ function Posts() {
       if (response.data.status) {
         setLikeId(postID);
         setLoading(true);
-        if (response.data.message==="you already liked this post"){
+        // if (response.data.message==="you already liked this post"){
 
-          customToast("you already liked this post");
-        }else{
+        //   customToast("you already liked this post");
+        // }else{
 
-          customToast("You liked this post");
-        }
-        console.log(response.data.likeCount); 
+          customToast(response.data.message);
+        // }
+        // console.log(response.data.likeCount); 
       } else {
         customToast("Failed to like the post");
       }

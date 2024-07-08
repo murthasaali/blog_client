@@ -19,7 +19,7 @@ function Account() {
         const response = await apiRequest.get("/api/getuserpost", {
           headers: {
             authorization: `${token}`, // Use the token directly as a string
-            "Content-Type": "multipart/form-data",
+            // "Content-Type": "multipart/form-data",
           },
         });
         console.log(response.data);
