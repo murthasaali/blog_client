@@ -214,12 +214,12 @@ function Posts() {
               <h3 className="text-xs font-thin text-stone-500 hover:underline">
 from {post.email}
               </h3>
-              <div className="w-fit gap-5 flex justify-between py-2">
+              <div className="w-fit gap-10 text-xl flex justify-between py-2">
                 <button>
                   <IoChatboxOutline />
                 </button>
                 <button  className='hover:text-red-600 relative'  onClick={()=>like(post.postID)}>
-                  <div className='bg-cyan-400 px-2 py-1 text-xs font-thin rounded-full absolute top-0 right-0 text-white'>{post.likeCount?post.likeCount:"0"} k</div>
+                  <div className='bg-cyan-400 px-2 py-1 text-xs font-thin rounded-full absolute top-[-4px] right-[-4px] flex justify-center items-center text-white'>{post.likeCount?post.likeCount:"0"} k</div>
                   <FaRegHeart />
                 </button>
                 <button>
