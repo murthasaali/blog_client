@@ -141,15 +141,27 @@ function Posts() {
   };
 
   //  function to like a post
-  const like=(id)=>{
-    setLoading(true)
-    setLikeId(id)
-    customToast("you liked this post")
-    setTimeout(() => {
-      setLoading(false)
-    }, 3000);
-
-  }
+  const like = async (postID) => {
+    
+    try {
+      const response = await apiRequest.post(`/api/posts/${postID}/likes`);
+      if (response.data.status) {
+        setLikeId(postID);
+        setLoading(true);
+        customToast("You liked this post");
+        console.log(response.data.likeCount); 
+      } else {
+        customToast("Failed to like the post");
+      }
+    } catch (error) {
+      console.error('Error liking post:', error);
+      customToast("Error liking the post");
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+    }
+  };
 
   return (
     <div className="w-full rounded-lg gap-3 flex flex-col">
