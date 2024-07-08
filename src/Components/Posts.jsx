@@ -145,6 +145,9 @@ function Posts() {
   //  function to like a post
   const like = async (postID) => {
     const token = localStorage.getItem("token"); // Retrieve the token as a string
+    console.log(token)
+    setLikeId(postID);
+    setLoading(true);
 
     try {
       const response = await apiRequest.post(`/api/posts/${postID}/likes`,{
@@ -152,9 +155,9 @@ function Posts() {
           authorization: `${token}`, // Use the token directly as a string
         },
       });
+      
       if (response.data.status) {
-        setLikeId(postID);
-        setLoading(true);
+     
         // if (response.data.message==="you already liked this post"){
 
         //   customToast("you already liked this post");
