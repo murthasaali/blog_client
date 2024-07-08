@@ -140,15 +140,28 @@ function Posts() {
     setIsModalOpen(false);
   };
 
+
+
   //  function to like a post
   const like = async (postID) => {
-    
+    const token = localStorage.getItem("token"); // Retrieve the token as a string
+
     try {
-      const response = await apiRequest.post(`/api/posts/${postID}/likes`);
+      const response = await apiRequest.post(`/api/posts/${postID}/likes`,{
+        headers: {
+          authorization: `${token}`, // Use the token directly as a string
+        },
+      });
       if (response.data.status) {
         setLikeId(postID);
         setLoading(true);
-        customToast("You liked this post");
+        if (response.data.message==="you already liked this post"){
+
+          customToast("you already liked this post");
+        }else{
+
+          customToast("You liked this post");
+        }
         console.log(response.data.likeCount); 
       } else {
         customToast("Failed to like the post");
