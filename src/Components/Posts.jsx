@@ -159,11 +159,11 @@ function Posts() {
       if (response.data.status) {
         customToast(response.data.message);
       } else {
-        customToast("Failed to like the post");
+        // customToast("Failed to like the post");
       }
     } catch (error) {
       console.error('Error liking post:', error);
-      customToast("Error liking the post");
+      // customToast("Error liking the post");
     } finally {
       setLoading(false);
     }
