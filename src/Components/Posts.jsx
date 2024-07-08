@@ -218,7 +218,8 @@ from {post.email}
                 <button>
                   <IoChatboxOutline />
                 </button>
-                <button  className='hover:text-red-600'  onClick={()=>like(post.postID)}>
+                <button  className='hover:text-red-600 relative'  onClick={()=>like(post.postID)}>
+                  <div className='bg-cyan-400 px-2 py-1 text-xs font-thin rounded-full absolute top-0 right-0 text-white'>{post.likeCount?post.likeCount:"0"} k</div>
                   <FaRegHeart />
                 </button>
                 <button>
